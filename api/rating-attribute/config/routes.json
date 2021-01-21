@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/rating-attributes",
+      "handler": "rating-attribute.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rating-attributes/count",
+      "handler": "rating-attribute.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rating-attributes/:id",
+      "handler": "rating-attribute.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/rating-attributes",
+      "handler": "rating-attribute.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/rating-attributes/:id",
+      "handler": "rating-attribute.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/rating-attributes/:id",
+      "handler": "rating-attribute.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

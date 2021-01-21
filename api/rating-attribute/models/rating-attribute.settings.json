@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rating_attributes",
+  "info": {
+    "name": "rating_attribute",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "rating": {
+      "type": "json"
+    },
+    "programs": {
+      "collection": "programs",
+      "via": "rating_attributes",
+      "dominant": true
+    }
+  }
+}

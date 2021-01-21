@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cohorts",
+  "info": {
+    "name": "cohort",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "cohort_programs": {
+      "via": "cohort",
+      "collection": "cohort-program"
+    }
+  }
+}

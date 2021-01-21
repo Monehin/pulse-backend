@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cohort_programs",
+  "info": {
+    "name": "cohort_program_schedule",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "cohort": {
+      "model": "cohort",
+      "via": "cohort_programs"
+    },
+    "program": {
+      "model": "programs",
+      "via": "cohort_programs"
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "application_start_date": {
+      "type": "date"
+    },
+    "application_end_date": {
+      "type": "date"
+    }
+  }
+}

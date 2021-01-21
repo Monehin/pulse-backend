@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "companies",
+  "info": {
+    "name": "company",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "mouSignedAt": {
+      "type": "date"
+    },
+    "stacks": {
+      "type": "string"
+    },
+    "workMode": {
+      "type": "enumeration",
+      "enum": [
+        "remote",
+        "hybrid",
+        "onsite"
+      ]
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "address": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "slots": {
+      "type": "integer"
+    },
+    "Trainees": {
+      "via": "company",
+      "collection": "user-program"
+    }
+  }
+}

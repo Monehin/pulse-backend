@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_programs",
+  "info": {
+    "name": "user_cohort_program",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "trainee": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "user_programs"
+    },
+    "cohort_program_id": {
+      "model": "cohort-program"
+    },
+    "manager": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "trainees",
+      "dominant": true
+    },
+    "company": {
+      "model": "company",
+      "via": "Trainees"
+    },
+    "ratings": {
+      "via": "user_cohort_program",
+      "collection": "rating"
+    }
+  }
+}

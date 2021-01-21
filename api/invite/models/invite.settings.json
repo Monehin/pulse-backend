@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invites",
+  "info": {
+    "name": "invite",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "inviter": {
+      "private": true,
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "type": {
+      "model": "user-type"
+    },
+    "email": {
+      "type": "email",
+      "unique": true,
+      "required": true
+    }
+  }
+}

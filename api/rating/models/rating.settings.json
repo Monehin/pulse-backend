@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ratings",
+  "info": {
+    "name": "rating",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "assessor": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "ratings"
+    },
+    "user_cohort_program": {
+      "model": "user-program",
+      "via": "ratings"
+    },
+    "scores": {
+      "type": "json"
+    },
+    "comment": {
+      "type": "text"
+    }
+  }
+}

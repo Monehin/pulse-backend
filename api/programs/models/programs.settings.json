@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programs",
+  "info": {
+    "name": "programs",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "weeks": {
+      "type": "integer"
+    },
+    "cohort_programs": {
+      "via": "program",
+      "collection": "cohort-program"
+    },
+    "rating_attributes": {
+      "via": "programs",
+      "collection": "rating-attribute"
+    }
+  }
+}

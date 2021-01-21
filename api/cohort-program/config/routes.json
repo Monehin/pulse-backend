@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/cohort-programs",
+      "handler": "cohort-program.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cohort-programs/count",
+      "handler": "cohort-program.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cohort-programs/:id",
+      "handler": "cohort-program.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cohort-programs",
+      "handler": "cohort-program.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/cohort-programs/:id",
+      "handler": "cohort-program.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/cohort-programs/:id",
+      "handler": "cohort-program.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

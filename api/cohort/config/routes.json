@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/cohorts",
+      "handler": "cohort.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cohorts/count",
+      "handler": "cohort.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/cohorts/:id",
+      "handler": "cohort.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/cohorts",
+      "handler": "cohort.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/cohorts/:id",
+      "handler": "cohort.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/cohorts/:id",
+      "handler": "cohort.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
