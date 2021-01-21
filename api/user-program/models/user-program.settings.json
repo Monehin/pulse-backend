@@ -12,17 +12,17 @@
   },
   "attributes": {
     "trainee": {
+      "via": "user_programs",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "user_programs"
+      "model": "user"
     },
     "cohort_program_id": {
       "model": "cohort-program"
     },
     "manager": {
+      "via": "trainees",
       "plugin": "users-permissions",
       "collection": "user",
-      "via": "trainees",
       "dominant": true
     },
     "company": {

@@ -16,8 +16,8 @@
       "via": "cohort_programs"
     },
     "program": {
-      "model": "programs",
-      "via": "cohort_programs"
+      "via": "cohort_programs",
+      "model": "programs"
     },
     "start_date": {
       "type": "date"

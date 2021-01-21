@@ -18,8 +18,8 @@
       "type": "text"
     },
     "programs": {
-      "collection": "programs",
       "via": "rating_attributes",
+      "collection": "programs",
       "dominant": true
     },
     "min": {

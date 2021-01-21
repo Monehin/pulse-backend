@@ -68,24 +68,21 @@
       "plugin": "upload",
       "required": false
     },
-    "user_type": {
-      "model": "user-type"
-    },
     "user_programs": {
-      "via": "trainee",
-      "collection": "user-program"
+      "collection": "user-program",
+      "via": "trainee"
     },
     "trainees": {
-      "via": "manager",
-      "collection": "user-program"
+      "collection": "user-program",
+      "via": "manager"
     },
     "ratings": {
-      "via": "assessor",
-      "collection": "rating"
+      "collection": "rating",
+      "via": "assessor"
     },
     "applications": {
-      "via": "user",
-      "collection": "application"
+      "collection": "application",
+      "via": "user"
     }
   }
 }

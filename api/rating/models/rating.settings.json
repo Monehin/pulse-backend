@@ -12,9 +12,9 @@
   },
   "attributes": {
     "assessor": {
+      "via": "ratings",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "ratings"
+      "model": "user"
     },
     "user_cohort_program": {
       "model": "user-program",

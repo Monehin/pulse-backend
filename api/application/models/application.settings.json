@@ -15,9 +15,9 @@
       "via": "applications"
     },
     "user": {
+      "via": "applications",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "applications"
+      "model": "user"
     },
     "first_company": {
       "type": "string"

@@ -16,13 +16,15 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "type": {
-      "model": "user-type"
-    },
     "email": {
       "type": "email",
       "unique": true,
       "required": true
+    },
+    "role": {
+      "columnName": "role",
+      "plugin": "users-permissions",
+      "model": "role"
     }
   }
 }
