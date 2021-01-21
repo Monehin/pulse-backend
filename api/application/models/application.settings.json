@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "name": "application"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "program": {
+      "model": "cohort-program",
+      "via": "applications"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "applications"
+    },
+    "first_company": {
+      "type": "string"
+    },
+    "second_company": {
+      "type": "string"
+    },
+    "third_company": {
+      "type": "string"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "approve",
+        "reject"
+      ]
+    }
+  }
+}

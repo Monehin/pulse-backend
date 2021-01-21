@@ -82,6 +82,10 @@
     "ratings": {
       "via": "assessor",
       "collection": "rating"
+    },
+    "applications": {
+      "via": "user",
+      "collection": "application"
     }
   }
 }

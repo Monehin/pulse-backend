@@ -30,6 +30,10 @@
     },
     "application_end_date": {
       "type": "date"
+    },
+    "applications": {
+      "via": "program",
+      "collection": "application"
     }
   }
 }

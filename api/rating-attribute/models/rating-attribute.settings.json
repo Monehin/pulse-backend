@@ -17,13 +17,16 @@
     "description": {
       "type": "text"
     },
-    "rating": {
-      "type": "json"
-    },
     "programs": {
       "collection": "programs",
       "via": "rating_attributes",
       "dominant": true
+    },
+    "min": {
+      "type": "integer"
+    },
+    "max": {
+      "type": "integer"
     }
   }
 }
