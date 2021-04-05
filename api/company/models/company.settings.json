@@ -51,6 +51,11 @@
     "Trainees": {
       "via": "company",
       "collection": "user-program"
+    },
+    "users": {
+      "via": "company",
+      "plugin": "users-permissions",
+      "collection": "user"
     }
   }
 }

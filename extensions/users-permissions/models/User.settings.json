@@ -59,7 +59,7 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "profileImage": {
+    "profile_photo": {
       "model": "file",
       "via": "related",
       "allowedTypes": [
@@ -83,6 +83,41 @@
     "applications": {
       "collection": "application",
       "via": "user"
+    },
+    "mobile_no": {
+      "type": "integer"
+    },
+    "company": {
+      "model": "company",
+      "via": "users"
+    },
+    "bio": {
+      "type": "richtext",
+      "maxLength": 500,
+      "minLength": 20
+    },
+    "graduted": {
+      "type": "boolean"
+    },
+    "skills": {
+      "collection": "skills",
+      "via": "users",
+      "dominant": true
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "linkedin_url": {
+      "type": "string"
+    },
+    "github_url": {
+      "type": "string"
+    },
+    "website_url": {
+      "type": "string"
     }
   }
 }
