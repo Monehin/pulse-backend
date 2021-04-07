@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/trainee-statuses",
+      "handler": "trainee-status.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/trainee-statuses/count",
+      "handler": "trainee-status.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/trainee-statuses/:id",
+      "handler": "trainee-status.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/trainee-statuses",
+      "handler": "trainee-status.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/trainee-statuses/:id",
+      "handler": "trainee-status.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/trainee-statuses/:id",
+      "handler": "trainee-status.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

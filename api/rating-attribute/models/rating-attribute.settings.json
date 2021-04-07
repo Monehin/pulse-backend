@@ -18,8 +18,8 @@
       "type": "text"
     },
     "programs": {
-      "via": "rating_attributes",
       "collection": "programs",
+      "via": "rating_attributes",
       "dominant": true
     },
     "min": {
@@ -27,6 +27,9 @@
     },
     "max": {
       "type": "integer"
+    },
+    "rubrics": {
+      "type": "json"
     }
   }
 }

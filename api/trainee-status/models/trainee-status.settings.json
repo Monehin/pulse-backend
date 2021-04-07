@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trainee_statuses",
+  "info": {
+    "name": "trainee_status",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "status": {
+      "type": "string"
+    }
+  }
+}
