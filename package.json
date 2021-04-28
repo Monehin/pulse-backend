@@ -11,6 +11,7 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "dotenv": "^8.2.0",
     "graphql": "^15.5.0",
     "strapi": "3.5.4",
     "strapi-admin": "3.5.4",
@@ -21,6 +22,7 @@
     "strapi-plugin-graphql": "3.5.4",
     "strapi-plugin-upload": "3.5.4",
     "strapi-plugin-users-permissions": "3.5.4",
+    "strapi-provider-email-sendgrid": "^3.6.0",
     "strapi-provider-upload-cloudinary": "^3.5.4",
     "strapi-utils": "3.5.4"
   },

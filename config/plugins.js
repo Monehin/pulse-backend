@@ -7,7 +7,17 @@ module.exports = ({ env }) => ({
       api_secret: env("CLOUDINARY_SECRET"),
     },
   },
-  //
+  email: {
+    provider: "sendgrid",
+    providerOptions: {
+      apiKey: env('SENDGRID_API_KEY'),
+    },
+    settings: {
+      defaultFrom: env('EMAIL_DEFAULT_FROM'),
+      defaultReplyTo: env('EMAIL_REPLY_TO'),
+      testAddress: env('EMAIL_TEST_TO'),
+    },
+  },
   graphql: {
     endpoint: "/graphql",
     shadowCRUD: true,
