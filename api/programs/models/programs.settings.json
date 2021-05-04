@@ -21,8 +21,8 @@
       "type": "integer"
     },
     "cohort_programs": {
-      "collection": "cohort-program",
-      "via": "program"
+      "via": "program",
+      "collection": "cohort-program"
     },
     "rating_attributes": {
       "via": "programs",
