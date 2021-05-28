@@ -19,6 +19,10 @@
     "cohort_programs": {
       "via": "cohort",
       "collection": "cohort-program"
+    },
+    "autoPopulate": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

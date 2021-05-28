@@ -27,8 +27,8 @@
       "model": "role"
     },
     "cohort_program_schedule": {
-      "model": "cohort-program",
-      "via": "invites"
+      "via": "invites",
+      "model": "cohort-program"
     }
   }
 }

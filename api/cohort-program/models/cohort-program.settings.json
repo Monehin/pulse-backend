@@ -37,11 +37,11 @@
     },
     "name": {
       "type": "string",
-      "unique": false
+      "unique": true
     },
     "invites": {
-      "via": "cohort_program_schedule",
-      "collection": "invite"
+      "collection": "invite",
+      "via": "cohort_program_schedule"
     }
   }
 }

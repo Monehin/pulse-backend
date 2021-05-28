@@ -8,7 +8,9 @@
 module.exports = {
   lifecycles: {
     // Called before an entry is created
-    beforeCreate(data) {},
+    beforeCreate(data) {
+      data.email = data.email.toLowerCase();
+    },
     // Called after an entry is created
     async afterCreate(result) {
       await strapi.services.email.sendEmailInvite(result);

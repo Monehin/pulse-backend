@@ -12,14 +12,16 @@ const formatError = (error) => [
   { messages: [{ id: error.id, message: error.message, field: error.field }] },
 ];
 
-const getDateObject = (date) => (date ? new Date(date) : new Date());
-
 module.exports = {
   /**
    * Create a/an user record.
    * @return {Object}
    */
   async create(ctx) {
+    const { getOne, getRole, addUserRelations, existingUserName } =
+      strapi.services.database;
+    const { email, username, password } = ctx.request.body;
+
     const advanced = await strapi
       .store({
         environment: "",
@@ -28,27 +30,10 @@ module.exports = {
         key: "advanced",
       })
       .get();
-    const { create, getAll, getOne, getIdFromName } = strapi.services.database;
-    const { email, username, password } = ctx.request.body;
-    let manager, cohortProgram, cohort, program;
 
-    if (!email) return ctx.badRequest("missing.email");
-    if (!username) return ctx.badRequest("missing.username");
-    if (!password) return ctx.badRequest("missing.password");
-
-    const allCohortPrograms = await getAll("cohort-program");
-
-    const bootCampId = await getIdFromName("programs", "Bootcamp");
-
-    const candidatePrograms = allCohortPrograms.filter(
-      (f) =>
-        getDateObject(f.start_date) <= getDateObject() &&
-        f.program.id === bootCampId
-    );
-
-    const defaultCohortProgram = candidatePrograms.sort(
-      (a, b) => getDateObject(b.start_date) - getDateObject(a.start_date)
-    )[0];
+    if (!email) return ctx.badRequest("missing email");
+    if (!username) return ctx.badRequest("missing username");
+    if (!password) return ctx.badRequest("missing password");
 
     const invite = await getOne("invite", { email });
     if (!invite) {
@@ -61,26 +46,7 @@ module.exports = {
       );
     }
 
-    if (invite.cohort_program_schedule) {
-      cohortProgram = await getOne("cohort-program", {
-        id: invite.cohort_program_schedule,
-      });
-    }
-    cohortProgram = cohortProgram || defaultCohortProgram;
-
-    if (invite.inviter) {
-      const invitingUser = await getOne("user", { id: invite.inviter });
-      const inviterRole = await getOne("role", { id: invitingUser.role });
-      // manager is an array
-      if (inviterRole.name === "Manager") manager = [invitingUser.id];
-    }
-
-    const [v, k] = invite.role
-      ? [invite.role, "id"]
-      : [advanced.default_role, "type"];
-    const role = await getOne("role", { [k]: v });
-
-    const userWithSameUsername = await getOne("user", { username });
+    const userWithSameUsername = await existingUserName(username);
 
     if (userWithSameUsername) {
       return ctx.badRequest(
@@ -101,7 +67,6 @@ module.exports = {
       if (userWithSameEmail) {
         return ctx.badRequest(
           null,
-
           formatError({
             id: "Auth.form.error.email.taken",
             message: "Email already taken.",
@@ -111,27 +76,22 @@ module.exports = {
       }
     }
 
+    const role = await getRole(invite, advanced);
+
     const user = {
       ...ctx.request.body,
       provider: "local",
       role,
     };
-
     user.email = user.email.toLowerCase();
 
     try {
       const data = await strapi.plugins["users-permissions"].services.user.add(
         user
       );
-
       ctx.created(sanitizeUser(data));
 
-      const [trainee, cohort_program_id] = [data.id, cohortProgram.id];
-      const userProgram =
-        role.name === "Trainee" ? { trainee, cohort_program_id } : null;
-
-      if (manager && userProgram) Object.assign(userProgram, { manager });
-      if (userProgram) await create("user-program", userProgram);
+      await addUserRelations(invite, data);
     } catch (error) {
       ctx.badRequest(null, formatError(error));
     }

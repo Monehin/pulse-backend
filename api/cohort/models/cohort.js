@@ -7,15 +7,16 @@
 
 module.exports = {
   lifecycles: {
+    dB: () => strapi.services.database,
     // Called before an entry is created
     beforeCreate(data) {},
     // Called after an entry is created
     async afterCreate(result) {
-      await strapi.services.database.addRelatedCombinations(
-        result,
-        "cohort",
-        "programs"
-      );
+      // const { addRelatedCombinations } = strapi.services.database;
+      await this.dB().addRelatedCombinations(result, "cohort", "programs");
+    },
+    async afterUpdate(result) {
+      await this.dB().addRelatedCombinations(result, "cohort", "programs");
     },
   },
 };

@@ -11,8 +11,8 @@
   },
   "attributes": {
     "program": {
-      "model": "cohort-program",
-      "via": "applications"
+      "via": "applications",
+      "model": "cohort-program"
     },
     "user": {
       "via": "applications",
