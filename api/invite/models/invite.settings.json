@@ -25,6 +25,10 @@
       "columnName": "role",
       "plugin": "users-permissions",
       "model": "role"
+    },
+    "cohort_program_schedule": {
+      "via": "invites",
+      "model": "cohort-program"
     }
   }
 }

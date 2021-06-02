@@ -21,15 +21,22 @@
       "type": "integer"
     },
     "cohort_programs": {
-      "collection": "cohort-program",
-      "via": "program"
+      "via": "program",
+      "collection": "cohort-program"
     },
     "rating_attributes": {
-      "via": "programs",
-      "collection": "rating-attribute"
+      "collection": "rating-attribute",
+      "via": "programs"
     },
     "prerequisite": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true,
+      "min": 0,
+      "required": true
+    },
+    "autoPopulate": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

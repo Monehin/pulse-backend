@@ -16,8 +16,8 @@
       "via": "cohort_programs"
     },
     "program": {
-      "via": "cohort_programs",
-      "model": "programs"
+      "model": "programs",
+      "via": "cohort_programs"
     },
     "start_date": {
       "type": "date"
@@ -32,8 +32,16 @@
       "type": "date"
     },
     "applications": {
-      "via": "program",
-      "collection": "application"
+      "collection": "application",
+      "via": "program"
+    },
+    "name": {
+      "type": "string",
+      "unique": true
+    },
+    "invites": {
+      "collection": "invite",
+      "via": "cohort_program_schedule"
     }
   }
 }
